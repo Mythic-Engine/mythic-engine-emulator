@@ -13,7 +13,7 @@ public class Code {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "TransactionTypeID", nullable = false)
-	private TypesTransaction transactionTypeID;
+	private TypeTransaction transactionTypeID;
 
 	@Column(name = "Code", nullable = false, length = 16)
 	private String code;
@@ -32,11 +32,11 @@ public class Code {
 		this.id = id;
 	}
 
-	public TypesTransaction getTransactionTypeID() {
+	public TypeTransaction getTransactionTypeID() {
 		return transactionTypeID;
 	}
 
-	public void setTransactionTypeID(TypesTransaction transactionTypeID) {
+	public void setTransactionTypeID(TypeTransaction transactionTypeID) {
 		this.transactionTypeID = transactionTypeID;
 	}
 

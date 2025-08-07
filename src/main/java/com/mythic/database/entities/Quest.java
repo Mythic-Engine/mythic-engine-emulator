@@ -17,7 +17,7 @@ public class Quest {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "QuestChainID", nullable = false)
-	private QuestsChain questChainID;
+	private QuestChain questChainID;
 
 	@Column(name = "ReqClassItemID", nullable = false)
 	private Integer reqClassItemID;
@@ -89,11 +89,11 @@ public class Quest {
 		this.achievementIndexID = achievementIndexID;
 	}
 
-	public QuestsChain getQuestChainID() {
+	public QuestChain getQuestChainID() {
 		return questChainID;
 	}
 
-	public void setQuestChainID(QuestsChain questChainID) {
+	public void setQuestChainID(QuestChain questChainID) {
 		this.questChainID = questChainID;
 	}
 
