@@ -1,1 +1,1 @@
-rootProject.name = "com"
+rootProject.name = "Mythic Engine Emulator"
