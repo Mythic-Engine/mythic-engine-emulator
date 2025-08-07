@@ -15,7 +15,7 @@ public class UserBan {
 	@MapsId
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "UserID", nullable = false)
-	private User users;
+	private UserEntity users;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "BanTypeID", nullable = false)
@@ -35,11 +35,11 @@ public class UserBan {
 		this.id = id;
 	}
 
-	public User getUsers() {
+	public UserEntity getUsers() {
 		return users;
 	}
 
-	public void setUsers(User users) {
+	public void setUsers(UserEntity users) {
 		this.users = users;
 	}
 

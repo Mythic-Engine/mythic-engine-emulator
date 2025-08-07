@@ -12,7 +12,7 @@ public class MapMonster {
 	@MapsId("mapID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "MapID", nullable = false)
-	private Map mapID;
+	private MapEntity mapID;
 
 	@MapsId("monsterID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -27,11 +27,11 @@ public class MapMonster {
 		this.id = id;
 	}
 
-	public Map getMapID() {
+	public MapEntity getMapID() {
 		return mapID;
 	}
 
-	public void setMapID(Map mapID) {
+	public void setMapID(MapEntity mapID) {
 		this.mapID = mapID;
 	}
 

@@ -1,8 +1,8 @@
 package com.mythic.database.repository;
 
-import com.mythic.database.entities.Class;
+import com.mythic.database.entities.GameClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClassRepository extends JpaRepository<Class, Integer> {
+public interface ClassRepository extends JpaRepository<GameClass, Integer> {
 
 }

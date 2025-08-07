@@ -14,7 +14,7 @@ public class UserIp {
 	@MapsId("userID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "UserID", nullable = false)
-	private User userID;
+	private UserEntity userID;
 
 	@Column(name = "LastUsed", nullable = false)
 	private Instant lastUsed;
@@ -27,11 +27,11 @@ public class UserIp {
 		this.id = id;
 	}
 
-	public User getUserID() {
+	public UserEntity getUserID() {
 		return userID;
 	}
 
-	public void setUserID(User userID) {
+	public void setUserID(UserEntity userID) {
 		this.userID = userID;
 	}
 

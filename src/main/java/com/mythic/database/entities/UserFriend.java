@@ -12,12 +12,12 @@ public class UserFriend {
 	@MapsId("friendID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "FriendID", nullable = false)
-	private User friendID;
+	private UserEntity friendID;
 
 	@MapsId("userID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "UserID", nullable = false)
-	private User userID;
+	private UserEntity userID;
 
 	public UserFriendId getId() {
 		return id;
@@ -27,19 +27,19 @@ public class UserFriend {
 		this.id = id;
 	}
 
-	public User getFriendID() {
+	public UserEntity getFriendID() {
 		return friendID;
 	}
 
-	public void setFriendID(User friendID) {
+	public void setFriendID(UserEntity friendID) {
 		this.friendID = friendID;
 	}
 
-	public User getUserID() {
+	public UserEntity getUserID() {
 		return userID;
 	}
 
-	public void setUserID(User userID) {
+	public void setUserID(UserEntity userID) {
 		this.userID = userID;
 	}
 

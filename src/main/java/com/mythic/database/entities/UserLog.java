@@ -18,7 +18,7 @@ public class UserLog {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "UserID", nullable = false)
-	private User userID;
+	private UserEntity userID;
 
 	@Lob
 	@Column(name = "Details", nullable = false)
@@ -43,11 +43,11 @@ public class UserLog {
 		this.logTypeID = logTypeID;
 	}
 
-	public User getUserID() {
+	public UserEntity getUserID() {
 		return userID;
 	}
 
-	public void setUserID(User userID) {
+	public void setUserID(UserEntity userID) {
 		this.userID = userID;
 	}
 

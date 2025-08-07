@@ -12,7 +12,7 @@ public class MapCell {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "MapID", nullable = false)
-	private Map mapID;
+	private MapEntity mapID;
 
 	@Column(name = "Frame", nullable = false, length = 16)
 	private String frame;
@@ -28,11 +28,11 @@ public class MapCell {
 		this.id = id;
 	}
 
-	public Map getMapID() {
+	public MapEntity getMapID() {
 		return mapID;
 	}
 
-	public void setMapID(Map mapID) {
+	public void setMapID(MapEntity mapID) {
 		this.mapID = mapID;
 	}
 

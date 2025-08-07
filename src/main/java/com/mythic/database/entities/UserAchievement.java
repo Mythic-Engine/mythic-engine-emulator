@@ -17,7 +17,7 @@ public class UserAchievement {
 	@MapsId("userID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "UserID", nullable = false)
-	private User userID;
+	private UserEntity userID;
 
 	@Column(name = "Value", nullable = false)
 	private Integer value;
@@ -38,11 +38,11 @@ public class UserAchievement {
 		this.achievementID = achievementID;
 	}
 
-	public User getUserID() {
+	public UserEntity getUserID() {
 		return userID;
 	}
 
-	public void setUserID(User userID) {
+	public void setUserID(UserEntity userID) {
 		this.userID = userID;
 	}
 

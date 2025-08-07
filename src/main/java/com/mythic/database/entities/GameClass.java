@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "classes")
-public class Class {
+public class GameClass {
 
 	@Id
 	@Column(name = "id", nullable = false)

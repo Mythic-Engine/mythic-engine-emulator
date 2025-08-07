@@ -9,7 +9,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "maps")
-public class Map {
+public class MapEntity {
 
 	@Id
 	@Column(name = "id", nullable = false)
