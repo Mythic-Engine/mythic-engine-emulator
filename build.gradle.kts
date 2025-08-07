@@ -36,4 +36,8 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.1")
     implementation("org.apache.commons:commons-text:1.14.0")
     implementation("be.cyberelf.nanoxml:nanoxml:2.2.3")
+    implementation("org.hibernate.orm:hibernate-core:7.0.9.Final")
+    implementation("org.apache.commons:commons-collections4:4.5.0")
+    implementation("org.reflections:reflections:0.10.2")
+    implementation("org.hibernate:hibernate-tools:5.6.15.Final")
 }
