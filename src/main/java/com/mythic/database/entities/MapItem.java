@@ -1,33 +1,18 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "maps_items")
-public class MapItem {
+public class MapItem extends EntityBase {
 
-	@EmbeddedId
-	private MapItemId id;
-
-	@MapsId("mapID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "MapID", nullable = false)
 	private MapEntity mapID;
 
-	public MapItemId getId() {
-		return id;
-	}
-
-	public void setId(MapItemId id) {
-		this.id = id;
-	}
-
-	public MapEntity getMapID() {
-		return mapID;
-	}
-
-	public void setMapID(MapEntity mapID) {
-		this.mapID = mapID;
-	}
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ItemID", nullable = false)
+	private Item item;
 
 }

@@ -1,18 +1,15 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "guilds_halls")
-public class GuildHall {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class GuildHall extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "GuildID", nullable = false)
-	private Guild guildID;
+	private Guild guild;
 
 	@Column(name = "Linkage", nullable = false, length = 64)
 	private String linkage;
@@ -29,61 +26,5 @@ public class GuildHall {
 	@Lob
 	@Column(name = "Interior", nullable = false)
 	private String interior;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Guild getGuildID() {
-		return guildID;
-	}
-
-	public void setGuildID(Guild guildID) {
-		this.guildID = guildID;
-	}
-
-	public String getLinkage() {
-		return linkage;
-	}
-
-	public void setLinkage(String linkage) {
-		this.linkage = linkage;
-	}
-
-	public String getCell() {
-		return cell;
-	}
-
-	public void setCell(String cell) {
-		this.cell = cell;
-	}
-
-	public Float getX() {
-		return x;
-	}
-
-	public void setX(Float x) {
-		this.x = x;
-	}
-
-	public Float getY() {
-		return y;
-	}
-
-	public void setY(Float y) {
-		this.y = y;
-	}
-
-	public String getInterior() {
-		return interior;
-	}
-
-	public void setInterior(String interior) {
-		this.interior = interior;
-	}
 
 }

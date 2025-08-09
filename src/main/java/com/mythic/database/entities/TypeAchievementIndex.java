@@ -1,12 +1,13 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "types_achievements_index")
-public class TypeAchievementIndex {
+public class TypeAchievementIndex extends EntityBase {
 
 	@Id
 	@Column(name = "AchievementTypeID", nullable = false)
@@ -23,37 +24,5 @@ public class TypeAchievementIndex {
 
 	@Column(name = "Description", nullable = false, length = 128)
 	private String description;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public TypeAchievement getTypesAchievements() {
-		return typesAchievements;
-	}
-
-	public void setTypesAchievements(TypeAchievement typesAchievements) {
-		this.typesAchievements = typesAchievements;
-	}
-
-	public Integer getIndex() {
-		return index;
-	}
-
-	public void setIndex(Integer index) {
-		this.index = index;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 }

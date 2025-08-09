@@ -1,14 +1,14 @@
 package com.mythic.database.entities;
 
-import jakarta.persistence.*;
+import com.mythic.database.EntityBase;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "servers")
-public class Server {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class Server extends EntityBase {
 
 	@Column(name = "Name", nullable = false, length = 64)
 	private String name;
@@ -34,77 +34,5 @@ public class Server {
 	@Lob
 	@Column(name = "MOTD", nullable = false)
 	private String motd;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public Boolean getOnline() {
-		return online;
-	}
-
-	public void setOnline(Boolean online) {
-		this.online = online;
-	}
-
-	public Boolean getUpgrade() {
-		return upgrade;
-	}
-
-	public void setUpgrade(Boolean upgrade) {
-		this.upgrade = upgrade;
-	}
-
-	public Boolean getChat() {
-		return chat;
-	}
-
-	public void setChat(Boolean chat) {
-		this.chat = chat;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Integer getMax() {
-		return max;
-	}
-
-	public void setMax(Integer max) {
-		this.max = max;
-	}
-
-	public String getMotd() {
-		return motd;
-	}
-
-	public void setMotd(String motd) {
-		this.motd = motd;
-	}
 
 }

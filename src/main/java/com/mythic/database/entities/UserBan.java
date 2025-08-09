@@ -1,70 +1,22 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "users_bans")
-public class UserBan {
-
-	@Id
-	@Column(name = "UserID", nullable = false)
-	private Integer id;
-
-	@MapsId
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "UserID", nullable = false)
-	private UserEntity users;
+public class UserBan extends UserEntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "BanTypeID", nullable = false)
-	private TypeBan banTypeID;
+	@JoinColumn(name = "TypeBanID", nullable = false)
+	private TypeBan typeBan;
 
 	@Column(name = "StartDate", nullable = false)
 	private Instant startDate;
 
 	@Column(name = "EndDate", nullable = false)
 	private Instant endDate;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public UserEntity getUsers() {
-		return users;
-	}
-
-	public void setUsers(UserEntity users) {
-		this.users = users;
-	}
-
-	public TypeBan getBanTypeID() {
-		return banTypeID;
-	}
-
-	public void setBanTypeID(TypeBan banTypeID) {
-		this.banTypeID = banTypeID;
-	}
-
-	public Instant getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Instant startDate) {
-		this.startDate = startDate;
-	}
-
-	public Instant getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Instant endDate) {
-		this.endDate = endDate;
-	}
 
 }

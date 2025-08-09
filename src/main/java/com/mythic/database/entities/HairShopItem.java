@@ -1,46 +1,21 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "hairs_shops_items")
-public class HairShopItem {
+public class HairShopItem extends EntityBase {
 
-	@EmbeddedId
-	private HairShopItemId id;
+	@Column(name = "Gender", nullable = false, length = 1)
+	private String gender;
 
-	@MapsId("hairID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "HairID", nullable = false)
-	private Hair hairID;
+	private Hair hair;
 
-	@MapsId("shopID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ShopID", nullable = false)
-	private HairShop shopID;
-
-	public HairShopItemId getId() {
-		return id;
-	}
-
-	public void setId(HairShopItemId id) {
-		this.id = id;
-	}
-
-	public Hair getHairID() {
-		return hairID;
-	}
-
-	public void setHairID(Hair hairID) {
-		this.hairID = hairID;
-	}
-
-	public HairShop getShopID() {
-		return shopID;
-	}
-
-	public void setShopID(HairShop shopID) {
-		this.shopID = shopID;
-	}
+	private HairShop shop;
 
 }

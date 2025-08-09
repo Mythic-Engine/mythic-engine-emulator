@@ -1,24 +1,18 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
+import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "users_logs")
-public class UserLog {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class UserLog extends UserEntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "LogTypeID", nullable = false)
-	private TypeLog logTypeID;
-
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "UserID", nullable = false)
-	private UserEntity userID;
+	@JoinColumn(name = "typeLogID", nullable = false)
+	private TypeLog typeLogID;
 
 	@Lob
 	@Column(name = "Details", nullable = false)
@@ -26,45 +20,5 @@ public class UserLog {
 
 	@Column(name = "Date", nullable = false)
 	private Instant date;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public TypeLog getLogTypeID() {
-		return logTypeID;
-	}
-
-	public void setLogTypeID(TypeLog logTypeID) {
-		this.logTypeID = logTypeID;
-	}
-
-	public UserEntity getUserID() {
-		return userID;
-	}
-
-	public void setUserID(UserEntity userID) {
-		this.userID = userID;
-	}
-
-	public String getDetails() {
-		return details;
-	}
-
-	public void setDetails(String details) {
-		this.details = details;
-	}
-
-	public Instant getDate() {
-		return date;
-	}
-
-	public void setDate(Instant date) {
-		this.date = date;
-	}
 
 }

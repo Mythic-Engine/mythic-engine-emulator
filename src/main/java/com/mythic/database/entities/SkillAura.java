@@ -1,15 +1,13 @@
 package com.mythic.database.entities;
 
-import jakarta.persistence.*;
+import com.mythic.database.EntityBase;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "skills_auras")
-public class SkillAura {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class SkillAura extends EntityBase {
 
 	@Column(name = "Name", nullable = false, length = 32)
 	private String name;
@@ -25,53 +23,5 @@ public class SkillAura {
 
 	@Column(name = "DamageTakenDecrease", nullable = false)
 	private Float damageTakenDecrease;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public Float getDamageIncrease() {
-		return damageIncrease;
-	}
-
-	public void setDamageIncrease(Float damageIncrease) {
-		this.damageIncrease = damageIncrease;
-	}
-
-	public Float getDamageTakenDecrease() {
-		return damageTakenDecrease;
-	}
-
-	public void setDamageTakenDecrease(Float damageTakenDecrease) {
-		this.damageTakenDecrease = damageTakenDecrease;
-	}
 
 }

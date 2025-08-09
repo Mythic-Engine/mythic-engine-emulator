@@ -1,18 +1,15 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "guilds_halls_connections")
-public class GuildHallConnection {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class GuildHallConnection extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "HallID", nullable = false)
-	private GuildHall hallID;
+	private GuildHall hall;
 
 	@Column(name = "Pad", nullable = false, length = 16)
 	private String pad;
@@ -22,45 +19,5 @@ public class GuildHallConnection {
 
 	@Column(name = "PadPosition", nullable = false, length = 16)
 	private String padPosition;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public GuildHall getHallID() {
-		return hallID;
-	}
-
-	public void setHallID(GuildHall hallID) {
-		this.hallID = hallID;
-	}
-
-	public String getPad() {
-		return pad;
-	}
-
-	public void setPad(String pad) {
-		this.pad = pad;
-	}
-
-	public String getCell() {
-		return cell;
-	}
-
-	public void setCell(String cell) {
-		this.cell = cell;
-	}
-
-	public String getPadPosition() {
-		return padPosition;
-	}
-
-	public void setPadPosition(String padPosition) {
-		this.padPosition = padPosition;
-	}
 
 }

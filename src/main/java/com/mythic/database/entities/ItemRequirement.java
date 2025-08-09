@@ -1,34 +1,21 @@
 package com.mythic.database.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.mythic.database.EntityBase;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "items_requirements")
-public class ItemRequirement {
+public class ItemRequirement extends EntityBase {
 
-	@EmbeddedId
-	private ItemRequirementId id;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ItemID", nullable = false)
+	private Item item;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ReqItemID", nullable = false)
+	private Item reqItem;
 
 	@Column(name = "Quantity", nullable = false)
 	private Integer quantity;
-
-	public ItemRequirementId getId() {
-		return id;
-	}
-
-	public void setId(ItemRequirementId id) {
-		this.id = id;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
 
 }

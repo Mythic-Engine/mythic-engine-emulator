@@ -1,16 +1,13 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "quests")
-public class Quest {
-
-	@Id
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class Quest extends EntityBase {
 
 	@Column(name = "AchievementIndexID", nullable = false)
 	private Integer achievementIndexID;
@@ -72,165 +69,5 @@ public class Quest {
 
 	@Column(name = "LastModified", nullable = false)
 	private Instant lastModified;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getAchievementIndexID() {
-		return achievementIndexID;
-	}
-
-	public void setAchievementIndexID(Integer achievementIndexID) {
-		this.achievementIndexID = achievementIndexID;
-	}
-
-	public QuestChain getQuestChainID() {
-		return questChainID;
-	}
-
-	public void setQuestChainID(QuestChain questChainID) {
-		this.questChainID = questChainID;
-	}
-
-	public Integer getReqClassItemID() {
-		return reqClassItemID;
-	}
-
-	public void setReqClassItemID(Integer reqClassItemID) {
-		this.reqClassItemID = reqClassItemID;
-	}
-
-	public Faction getFactionID() {
-		return factionID;
-	}
-
-	public void setFactionID(Faction factionID) {
-		this.factionID = factionID;
-	}
-
-	public Integer getReqReputation() {
-		return reqReputation;
-	}
-
-	public void setReqReputation(Integer reqReputation) {
-		this.reqReputation = reqReputation;
-	}
-
-	public Integer getReqClassPoints() {
-		return reqClassPoints;
-	}
-
-	public void setReqClassPoints(Integer reqClassPoints) {
-		this.reqClassPoints = reqClassPoints;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getEndText() {
-		return endText;
-	}
-
-	public void setEndText(String endText) {
-		this.endText = endText;
-	}
-
-	public Integer getExperience() {
-		return experience;
-	}
-
-	public void setExperience(Integer experience) {
-		this.experience = experience;
-	}
-
-	public Integer getGold() {
-		return gold;
-	}
-
-	public void setGold(Integer gold) {
-		this.gold = gold;
-	}
-
-	public Integer getReputation() {
-		return reputation;
-	}
-
-	public void setReputation(Integer reputation) {
-		this.reputation = reputation;
-	}
-
-	public Integer getClassPoints() {
-		return classPoints;
-	}
-
-	public void setClassPoints(Integer classPoints) {
-		this.classPoints = classPoints;
-	}
-
-	public String getRewardType() {
-		return rewardType;
-	}
-
-	public void setRewardType(String rewardType) {
-		this.rewardType = rewardType;
-	}
-
-	public Integer getLevel() {
-		return level;
-	}
-
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
-
-	public Boolean getUpgrade() {
-		return upgrade;
-	}
-
-	public void setUpgrade(Boolean upgrade) {
-		this.upgrade = upgrade;
-	}
-
-	public Boolean getOnce() {
-		return once;
-	}
-
-	public void setOnce(Boolean once) {
-		this.once = once;
-	}
-
-	public Integer getQuestChainOrder() {
-		return questChainOrder;
-	}
-
-	public void setQuestChainOrder(Integer questChainOrder) {
-		this.questChainOrder = questChainOrder;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
-	}
 
 }

@@ -1,15 +1,11 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "skills_auras_effects")
-public class SkillAuraEffect {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class SkillAuraEffect extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "AuraID", nullable = false)
@@ -23,45 +19,5 @@ public class SkillAuraEffect {
 
 	@Column(name = "Type", nullable = false, length = 1)
 	private String type;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public SkillAura getAuraID() {
-		return auraID;
-	}
-
-	public void setAuraID(SkillAura auraID) {
-		this.auraID = auraID;
-	}
-
-	public String getStat() {
-		return stat;
-	}
-
-	public void setStat(String stat) {
-		this.stat = stat;
-	}
-
-	public Float getValue() {
-		return value;
-	}
-
-	public void setValue(Float value) {
-		this.value = value;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 }

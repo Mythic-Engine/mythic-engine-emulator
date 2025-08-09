@@ -1,29 +1,25 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "items")
-public class Item {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	private Integer id;
+public class Item extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "EnhID", nullable = false)
-	private Enhancement enhID;
+	private Enhancement enhancement;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "ReqClassItemID", nullable = false)
-	private Item reqClassItemID;
+	@JoinColumn(name = "RequiredClassItemID", nullable = false)
+	private Item requiredClassItem;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "ElementTypeID", nullable = false)
-	private TypeElement elementTypeID;
+	@JoinColumn(name = "TypeElementID", nullable = false)
+	private TypeElement TypeElement;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ClassID", nullable = false)
@@ -31,11 +27,11 @@ public class Item {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "FactionID", nullable = false)
-	private Faction factionID;
+	private Faction faction;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "ItemTypeID", nullable = false)
-	private TypeItem itemTypeID;
+	@JoinColumn(name = "TypeItemID", nullable = false)
+	private TypeItem typeItem;
 
 	@Column(name = "Name", nullable = false, length = 60)
 	private String name;
@@ -103,237 +99,5 @@ public class Item {
 
 	@Column(name = "LastModified", nullable = false)
 	private Instant lastModified;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Enhancement getEnhID() {
-		return enhID;
-	}
-
-	public void setEnhID(Enhancement enhID) {
-		this.enhID = enhID;
-	}
-
-	public Item getReqClassItemID() {
-		return reqClassItemID;
-	}
-
-	public void setReqClassItemID(Item reqClassItemID) {
-		this.reqClassItemID = reqClassItemID;
-	}
-
-	public TypeElement getElementTypeID() {
-		return elementTypeID;
-	}
-
-	public void setElementTypeID(TypeElement elementTypeID) {
-		this.elementTypeID = elementTypeID;
-	}
-
-	public GameClass getClassID() {
-		return classID;
-	}
-
-	public void setClassID(GameClass classID) {
-		this.classID = classID;
-	}
-
-	public Faction getFactionID() {
-		return factionID;
-	}
-
-	public void setFactionID(Faction factionID) {
-		this.factionID = factionID;
-	}
-
-	public TypeItem getItemTypeID() {
-		return itemTypeID;
-	}
-
-	public void setItemTypeID(TypeItem itemTypeID) {
-		this.itemTypeID = itemTypeID;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getFile() {
-		return file;
-	}
-
-	public void setFile(String file) {
-		this.file = file;
-	}
-
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	public Integer getLevel() {
-		return level;
-	}
-
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
-
-	public Integer getDps() {
-		return dps;
-	}
-
-	public void setDps(Integer dps) {
-		this.dps = dps;
-	}
-
-	public Integer getRange() {
-		return range;
-	}
-
-	public void setRange(Integer range) {
-		this.range = range;
-	}
-
-	public Integer getRarity() {
-		return rarity;
-	}
-
-	public void setRarity(Integer rarity) {
-		this.rarity = rarity;
-	}
-
-	public Integer getCost() {
-		return cost;
-	}
-
-	public void setCost(Integer cost) {
-		this.cost = cost;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	public Integer getStack() {
-		return stack;
-	}
-
-	public void setStack(Integer stack) {
-		this.stack = stack;
-	}
-
-	public Boolean getCoins() {
-		return coins;
-	}
-
-	public void setCoins(Boolean coins) {
-		this.coins = coins;
-	}
-
-	public Boolean getTemporary() {
-		return temporary;
-	}
-
-	public void setTemporary(Boolean temporary) {
-		this.temporary = temporary;
-	}
-
-	public Boolean getUpgrade() {
-		return upgrade;
-	}
-
-	public void setUpgrade(Boolean upgrade) {
-		this.upgrade = upgrade;
-	}
-
-	public Boolean getStaff() {
-		return staff;
-	}
-
-	public void setStaff(Boolean staff) {
-		this.staff = staff;
-	}
-
-	public Integer getReqReputation() {
-		return reqReputation;
-	}
-
-	public void setReqReputation(Integer reqReputation) {
-		this.reqReputation = reqReputation;
-	}
-
-	public Integer getReqClassPoints() {
-		return reqClassPoints;
-	}
-
-	public void setReqClassPoints(Integer reqClassPoints) {
-		this.reqClassPoints = reqClassPoints;
-	}
-
-	public String getReqQuests() {
-		return reqQuests;
-	}
-
-	public void setReqQuests(String reqQuests) {
-		this.reqQuests = reqQuests;
-	}
-
-	public Integer getQuestStringIndex() {
-		return questStringIndex;
-	}
-
-	public void setQuestStringIndex(Integer questStringIndex) {
-		this.questStringIndex = questStringIndex;
-	}
-
-	public Integer getQuestStringValue() {
-		return questStringValue;
-	}
-
-	public void setQuestStringValue(Integer questStringValue) {
-		this.questStringValue = questStringValue;
-	}
-
-	public String getMeta() {
-		return meta;
-	}
-
-	public void setMeta(String meta) {
-		this.meta = meta;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
-	}
 
 }

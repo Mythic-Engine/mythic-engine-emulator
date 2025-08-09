@@ -1,33 +1,27 @@
 package com.mythic.database.entities;
 
+import com.mythic.database.EntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "codes_items")
-public class CodeItem {
+public class CodeItem extends EntityBase {
 
-	@EmbeddedId
-	private CodeItemId id;
-
-	@MapsId("codeID")
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "CodeID", nullable = false)
-	private Code codeID;
+	private Code code;
 
-	public CodeItemId getId() {
-		return id;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ItemID", nullable = false)
+	private Item item;
+
+	public Item item() {
+		return item;
 	}
 
-	public void setId(CodeItemId id) {
-		this.id = id;
-	}
-
-	public Code getCodeID() {
-		return codeID;
-	}
-
-	public void setCodeID(Code codeID) {
-		this.codeID = codeID;
+	public CodeItem setItem(Item item) {
+		this.item = item;
+		return this;
 	}
 
 }
