@@ -1,6 +1,6 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
+import com.mythic.database.base.EntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Lob;
@@ -15,6 +15,9 @@ public class Server extends EntityBase {
 
 	@Column(name = "IP", nullable = false, length = 15)
 	private String ip;
+
+	@Column(name = "IP", nullable = false)
+	private Integer port;
 
 	@Column(name = "Online", nullable = false)
 	private Boolean online = false;
@@ -50,6 +53,15 @@ public class Server extends EntityBase {
 
 	public Server setIp(String ip) {
 		this.ip = ip;
+		return this;
+	}
+
+	public Integer getPort() {
+		return port;
+	}
+
+	public Server setPort(Integer port) {
+		this.port = port;
 		return this;
 	}
 

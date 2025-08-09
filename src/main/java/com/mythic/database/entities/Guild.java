@@ -1,11 +1,9 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
+import com.mythic.database.base.EntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-
-import java.time.Instant;
 
 @Entity
 @Table(name = "guilds")
@@ -22,9 +20,6 @@ public class Guild extends EntityBase {
 
 	@Column(name = "HallSize", nullable = false)
 	private Integer hallSize;
-
-	@Column(name = "LastUpdated", nullable = false)
-	private Instant lastUpdated;
 
 	public String getName() {
 		return name;
@@ -59,15 +54,6 @@ public class Guild extends EntityBase {
 
 	public Guild setHallSize(Integer hallSize) {
 		this.hallSize = hallSize;
-		return this;
-	}
-
-	public Instant getLastUpdated() {
-		return lastUpdated;
-	}
-
-	public Guild setLastUpdated(Instant lastUpdated) {
-		this.lastUpdated = lastUpdated;
 		return this;
 	}
 

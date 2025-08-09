@@ -1,4 +1,4 @@
-package com.mythic.database;
+package com.mythic.database.base;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;

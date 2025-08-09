@@ -1,6 +1,6 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
+import com.mythic.database.base.EntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Lob;

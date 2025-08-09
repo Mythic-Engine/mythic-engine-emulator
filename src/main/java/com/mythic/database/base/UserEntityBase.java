@@ -1,4 +1,4 @@
-package com.mythic.database;
+package com.mythic.database.base;
 
 import com.mythic.database.entities.UserEntity;
 import jakarta.persistence.FetchType;

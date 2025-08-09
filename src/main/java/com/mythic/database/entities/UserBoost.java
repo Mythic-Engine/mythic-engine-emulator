@@ -1,6 +1,6 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.UserEntityBase;
+import com.mythic.database.base.UserEntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;

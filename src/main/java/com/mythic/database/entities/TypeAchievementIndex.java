@@ -1,6 +1,6 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
+import com.mythic.database.base.EntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
