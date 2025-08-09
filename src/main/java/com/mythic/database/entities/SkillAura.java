@@ -24,4 +24,49 @@ public class SkillAura extends EntityBase {
 	@Column(name = "DamageTakenDecrease", nullable = false)
 	private Float damageTakenDecrease;
 
+	public String getName() {
+		return name;
+	}
+
+	public SkillAura setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public Integer getDuration() {
+		return duration;
+	}
+
+	public SkillAura setDuration(Integer duration) {
+		this.duration = duration;
+		return this;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public SkillAura setCategory(String category) {
+		this.category = category;
+		return this;
+	}
+
+	public Float getDamageIncrease() {
+		return damageIncrease;
+	}
+
+	public SkillAura setDamageIncrease(Float damageIncrease) {
+		this.damageIncrease = damageIncrease;
+		return this;
+	}
+
+	public Float getDamageTakenDecrease() {
+		return damageTakenDecrease;
+	}
+
+	public SkillAura setDamageTakenDecrease(Float damageTakenDecrease) {
+		this.damageTakenDecrease = damageTakenDecrease;
+		return this;
+	}
+
 }

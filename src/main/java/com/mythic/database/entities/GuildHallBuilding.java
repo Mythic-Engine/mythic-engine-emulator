@@ -17,4 +17,31 @@ public class GuildHallBuilding extends EntityBase {
 	@Column(name = "Slot", nullable = false)
 	private Integer slot;
 
+	public Integer getItem() {
+		return item;
+	}
+
+	public GuildHallBuilding setItem(Integer item) {
+		this.item = item;
+		return this;
+	}
+
+	public GuildHall getHall() {
+		return hall;
+	}
+
+	public GuildHallBuilding setHall(GuildHall hall) {
+		this.hall = hall;
+		return this;
+	}
+
+	public Integer getSlot() {
+		return slot;
+	}
+
+	public GuildHallBuilding setSlot(Integer slot) {
+		this.slot = slot;
+		return this;
+	}
+
 }

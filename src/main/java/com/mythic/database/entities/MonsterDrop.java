@@ -21,4 +21,40 @@ public class MonsterDrop extends EntityBase {
 	@Column(name = "Quantity", nullable = false)
 	private Integer quantity;
 
+	public MonsterEntity getMonsterID() {
+		return monsterID;
+	}
+
+	public MonsterDrop setMonsterID(MonsterEntity monsterID) {
+		this.monsterID = monsterID;
+		return this;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public MonsterDrop setItem(Item item) {
+		this.item = item;
+		return this;
+	}
+
+	public Float getChance() {
+		return chance;
+	}
+
+	public MonsterDrop setChance(Float chance) {
+		this.chance = chance;
+		return this;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public MonsterDrop setQuantity(Integer quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
 }

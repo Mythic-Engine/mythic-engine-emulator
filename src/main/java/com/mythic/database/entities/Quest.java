@@ -70,4 +70,175 @@ public class Quest extends EntityBase {
 	@Column(name = "LastModified", nullable = false)
 	private Instant lastModified;
 
+	public Integer getAchievementIndexID() {
+		return achievementIndexID;
+	}
+
+	public Quest setAchievementIndexID(Integer achievementIndexID) {
+		this.achievementIndexID = achievementIndexID;
+		return this;
+	}
+
+	public QuestChain getQuestChainID() {
+		return questChainID;
+	}
+
+	public Quest setQuestChainID(QuestChain questChainID) {
+		this.questChainID = questChainID;
+		return this;
+	}
+
+	public Integer getReqClassItemID() {
+		return reqClassItemID;
+	}
+
+	public Quest setReqClassItemID(Integer reqClassItemID) {
+		this.reqClassItemID = reqClassItemID;
+		return this;
+	}
+
+	public Faction getFactionID() {
+		return factionID;
+	}
+
+	public Quest setFactionID(Faction factionID) {
+		this.factionID = factionID;
+		return this;
+	}
+
+	public Integer getReqReputation() {
+		return reqReputation;
+	}
+
+	public Quest setReqReputation(Integer reqReputation) {
+		this.reqReputation = reqReputation;
+		return this;
+	}
+
+	public Integer getReqClassPoints() {
+		return reqClassPoints;
+	}
+
+	public Quest setReqClassPoints(Integer reqClassPoints) {
+		this.reqClassPoints = reqClassPoints;
+		return this;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Quest setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Quest setDescription(String description) {
+		this.description = description;
+		return this;
+	}
+
+	public String getEndText() {
+		return endText;
+	}
+
+	public Quest setEndText(String endText) {
+		this.endText = endText;
+		return this;
+	}
+
+	public Integer getExperience() {
+		return experience;
+	}
+
+	public Quest setExperience(Integer experience) {
+		this.experience = experience;
+		return this;
+	}
+
+	public Integer getGold() {
+		return gold;
+	}
+
+	public Quest setGold(Integer gold) {
+		this.gold = gold;
+		return this;
+	}
+
+	public Integer getReputation() {
+		return reputation;
+	}
+
+	public Quest setReputation(Integer reputation) {
+		this.reputation = reputation;
+		return this;
+	}
+
+	public Integer getClassPoints() {
+		return classPoints;
+	}
+
+	public Quest setClassPoints(Integer classPoints) {
+		this.classPoints = classPoints;
+		return this;
+	}
+
+	public String getRewardType() {
+		return rewardType;
+	}
+
+	public Quest setRewardType(String rewardType) {
+		this.rewardType = rewardType;
+		return this;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public Quest setLevel(Integer level) {
+		this.level = level;
+		return this;
+	}
+
+	public Boolean getUpgrade() {
+		return upgrade;
+	}
+
+	public Quest setUpgrade(Boolean upgrade) {
+		this.upgrade = upgrade;
+		return this;
+	}
+
+	public Boolean getOnce() {
+		return once;
+	}
+
+	public Quest setOnce(Boolean once) {
+		this.once = once;
+		return this;
+	}
+
+	public Integer getQuestChainOrder() {
+		return questChainOrder;
+	}
+
+	public Quest setQuestChainOrder(Integer questChainOrder) {
+		this.questChainOrder = questChainOrder;
+		return this;
+	}
+
+	public Instant getLastModified() {
+		return lastModified;
+	}
+
+	public Quest setLastModified(Instant lastModified) {
+		this.lastModified = lastModified;
+		return this;
+	}
+
 }

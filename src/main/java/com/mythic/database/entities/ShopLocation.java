@@ -15,4 +15,22 @@ public class ShopLocation extends EntityBase {
 	@JoinColumn(name = "ShopID", nullable = false)
 	private Shop shopID;
 
+	public MapEntity getMapID() {
+		return mapID;
+	}
+
+	public ShopLocation setMapID(MapEntity mapID) {
+		this.mapID = mapID;
+		return this;
+	}
+
+	public Shop getShopID() {
+		return shopID;
+	}
+
+	public ShopLocation setShopID(Shop shopID) {
+		this.shopID = shopID;
+		return this;
+	}
+
 }

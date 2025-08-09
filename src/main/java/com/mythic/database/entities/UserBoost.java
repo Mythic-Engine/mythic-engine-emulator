@@ -1,6 +1,5 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
 import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
 
@@ -16,5 +15,23 @@ public class UserBoost extends UserEntityBase {
 
 	@Column(name = "DateEnd", nullable = false)
 	private Instant dateEnd;
+
+	public TypeBoost getTypeBoost() {
+		return typeBoost;
+	}
+
+	public UserBoost setTypeBoost(TypeBoost typeBoost) {
+		this.typeBoost = typeBoost;
+		return this;
+	}
+
+	public Instant getDateEnd() {
+		return dateEnd;
+	}
+
+	public UserBoost setDateEnd(Instant dateEnd) {
+		this.dateEnd = dateEnd;
+		return this;
+	}
 
 }

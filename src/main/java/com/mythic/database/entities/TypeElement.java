@@ -12,4 +12,13 @@ public class TypeElement extends EntityBase {
 	@Column(name = "Name", nullable = false, length = 16)
 	private String name;
 
+	public String getName() {
+		return name;
+	}
+
+	public TypeElement setName(String name) {
+		this.name = name;
+		return this;
+	}
+
 }

@@ -12,4 +12,13 @@ public class TypeItemEquipSpot extends EntityBase {
 	@Column(name = "Name", nullable = false, length = 8)
 	private String name;
 
+	public String getName() {
+		return name;
+	}
+
+	public TypeItemEquipSpot setName(String name) {
+		this.name = name;
+		return this;
+	}
+
 }

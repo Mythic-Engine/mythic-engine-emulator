@@ -27,4 +27,58 @@ public class GuildHall extends EntityBase {
 	@Column(name = "Interior", nullable = false)
 	private String interior;
 
+	public Guild getGuild() {
+		return guild;
+	}
+
+	public GuildHall setGuild(Guild guild) {
+		this.guild = guild;
+		return this;
+	}
+
+	public String getLinkage() {
+		return linkage;
+	}
+
+	public GuildHall setLinkage(String linkage) {
+		this.linkage = linkage;
+		return this;
+	}
+
+	public String getCell() {
+		return cell;
+	}
+
+	public GuildHall setCell(String cell) {
+		this.cell = cell;
+		return this;
+	}
+
+	public Float getX() {
+		return x;
+	}
+
+	public GuildHall setX(Float x) {
+		this.x = x;
+		return this;
+	}
+
+	public Float getY() {
+		return y;
+	}
+
+	public GuildHall setY(Float y) {
+		this.y = y;
+		return this;
+	}
+
+	public String getInterior() {
+		return interior;
+	}
+
+	public GuildHall setInterior(String interior) {
+		this.interior = interior;
+		return this;
+	}
+
 }

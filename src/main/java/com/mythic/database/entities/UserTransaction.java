@@ -1,10 +1,7 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
 import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
-
-import java.time.Instant;
 
 @Entity
 @Table(name = "users_transactions")
@@ -17,5 +14,23 @@ public class UserTransaction extends UserEntityBase {
 	@Lob
 	@Column(name = "Details", nullable = false)
 	private String details;
+
+	public TypeTransaction getTypeTransactionID() {
+		return TypeTransactionID;
+	}
+
+	public UserTransaction setTypeTransactionID(TypeTransaction typeTransactionID) {
+		TypeTransactionID = typeTransactionID;
+		return this;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public UserTransaction setDetails(String details) {
+		this.details = details;
+		return this;
+	}
 
 }

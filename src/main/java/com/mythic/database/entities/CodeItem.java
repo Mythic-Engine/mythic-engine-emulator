@@ -15,12 +15,12 @@ public class CodeItem extends EntityBase {
 	@JoinColumn(name = "ItemID", nullable = false)
 	private Item item;
 
-	public Item item() {
-		return item;
+	public Code getCode() {
+		return code;
 	}
 
-	public CodeItem setItem(Item item) {
-		this.item = item;
+	public CodeItem setCode(Code code) {
+		this.code = code;
 		return this;
 	}
 

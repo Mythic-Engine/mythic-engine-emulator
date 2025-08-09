@@ -12,4 +12,13 @@ public class QuestChain extends EntityBase {
 	@Column(name = "Name", nullable = false, length = 128)
 	private String name;
 
+	public String getName() {
+		return name;
+	}
+
+	public QuestChain setName(String name) {
+		this.name = name;
+		return this;
+	}
+
 }

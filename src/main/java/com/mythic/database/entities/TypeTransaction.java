@@ -12,4 +12,13 @@ public class TypeTransaction extends EntityBase {
 	@Column(name = "Name", nullable = false, length = 32)
 	private String name;
 
+	public String getName() {
+		return name;
+	}
+
+	public TypeTransaction setName(String name) {
+		this.name = name;
+		return this;
+	}
+
 }

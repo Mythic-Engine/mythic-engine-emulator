@@ -1,9 +1,8 @@
 package com.mythic.database.repository;
 
 import com.mythic.database.entities.UserAchievement;
-import com.mythic.database.entities.UserAchievementId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserAchievementRepository extends JpaRepository<UserAchievement, UserAchievementId> {
+public interface UserAchievementRepository extends JpaRepository<UserAchievement, Integer> {
 
 }

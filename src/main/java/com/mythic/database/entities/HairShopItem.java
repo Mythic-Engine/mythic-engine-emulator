@@ -18,4 +18,31 @@ public class HairShopItem extends EntityBase {
 	@JoinColumn(name = "ShopID", nullable = false)
 	private HairShop shop;
 
+	public String getGender() {
+		return gender;
+	}
+
+	public HairShopItem setGender(String gender) {
+		this.gender = gender;
+		return this;
+	}
+
+	public Hair getHair() {
+		return hair;
+	}
+
+	public HairShopItem setHair(Hair hair) {
+		this.hair = hair;
+		return this;
+	}
+
+	public HairShop getShop() {
+		return shop;
+	}
+
+	public HairShopItem setShop(HairShop shop) {
+		this.shop = shop;
+		return this;
+	}
+
 }

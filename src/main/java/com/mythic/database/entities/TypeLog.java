@@ -12,4 +12,13 @@ public class TypeLog extends EntityBase {
 	@Column(name = "Name", nullable = false, length = 32)
 	private String name;
 
+	public String getName() {
+		return name;
+	}
+
+	public TypeLog setName(String name) {
+		this.name = name;
+		return this;
+	}
+
 }

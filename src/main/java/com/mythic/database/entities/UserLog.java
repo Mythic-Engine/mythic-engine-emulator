@@ -1,6 +1,5 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
 import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
 
@@ -20,5 +19,32 @@ public class UserLog extends UserEntityBase {
 
 	@Column(name = "Date", nullable = false)
 	private Instant date;
+
+	public TypeLog getTypeLogID() {
+		return typeLogID;
+	}
+
+	public UserLog setTypeLogID(TypeLog typeLogID) {
+		this.typeLogID = typeLogID;
+		return this;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public UserLog setDetails(String details) {
+		this.details = details;
+		return this;
+	}
+
+	public Instant getDate() {
+		return date;
+	}
+
+	public UserLog setDate(Instant date) {
+		this.date = date;
+		return this;
+	}
 
 }

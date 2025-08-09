@@ -15,4 +15,22 @@ public class SettingLogin extends EntityBase {
 	@Column(name = "Value", nullable = false, length = 50)
 	private String value;
 
+	public String getName() {
+		return name;
+	}
+
+	public SettingLogin setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public SettingLogin setValue(String value) {
+		this.value = value;
+		return this;
+	}
+
 }

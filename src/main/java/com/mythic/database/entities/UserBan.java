@@ -19,4 +19,31 @@ public class UserBan extends UserEntityBase {
 	@Column(name = "EndDate", nullable = false)
 	private Instant endDate;
 
+	public TypeBan getTypeBan() {
+		return typeBan;
+	}
+
+	public UserBan setTypeBan(TypeBan typeBan) {
+		this.typeBan = typeBan;
+		return this;
+	}
+
+	public Instant getStartDate() {
+		return startDate;
+	}
+
+	public UserBan setStartDate(Instant startDate) {
+		this.startDate = startDate;
+		return this;
+	}
+
+	public Instant getEndDate() {
+		return endDate;
+	}
+
+	public UserBan setEndDate(Instant endDate) {
+		this.endDate = endDate;
+		return this;
+	}
+
 }

@@ -17,4 +17,31 @@ public class TypeItem extends EntityBase {
 	@Column(name = "Icon", nullable = false, length = 32)
 	private String icon;
 
+	public TypeItemEquipSpot getEquipSpotTypeID() {
+		return equipSpotTypeID;
+	}
+
+	public TypeItem setEquipSpotTypeID(TypeItemEquipSpot equipSpotTypeID) {
+		this.equipSpotTypeID = equipSpotTypeID;
+		return this;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public TypeItem setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public TypeItem setIcon(String icon) {
+		this.icon = icon;
+		return this;
+	}
+
 }

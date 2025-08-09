@@ -35,4 +35,76 @@ public class Server extends EntityBase {
 	@Column(name = "MOTD", nullable = false)
 	private String motd;
 
+	public String getName() {
+		return name;
+	}
+
+	public Server setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public Server setIp(String ip) {
+		this.ip = ip;
+		return this;
+	}
+
+	public Boolean getOnline() {
+		return online;
+	}
+
+	public Server setOnline(Boolean online) {
+		this.online = online;
+		return this;
+	}
+
+	public Boolean getUpgrade() {
+		return upgrade;
+	}
+
+	public Server setUpgrade(Boolean upgrade) {
+		this.upgrade = upgrade;
+		return this;
+	}
+
+	public Boolean getChat() {
+		return chat;
+	}
+
+	public Server setChat(Boolean chat) {
+		this.chat = chat;
+		return this;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public Server setCount(Integer count) {
+		this.count = count;
+		return this;
+	}
+
+	public Integer getMax() {
+		return max;
+	}
+
+	public Server setMax(Integer max) {
+		this.max = max;
+		return this;
+	}
+
+	public String getMotd() {
+		return motd;
+	}
+
+	public Server setMotd(String motd) {
+		this.motd = motd;
+		return this;
+	}
+
 }

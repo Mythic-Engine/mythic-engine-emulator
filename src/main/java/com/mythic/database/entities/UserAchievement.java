@@ -14,4 +14,22 @@ public class UserAchievement extends UserEntityBase {
 	@Column(name = "Value", nullable = false)
 	private Integer value;
 
+	public TypeAchievement getAchievement() {
+		return achievement;
+	}
+
+	public UserAchievement setAchievement(TypeAchievement achievement) {
+		this.achievement = achievement;
+		return this;
+	}
+
+	public Integer getValue() {
+		return value;
+	}
+
+	public UserAchievement setValue(Integer value) {
+		this.value = value;
+		return this;
+	}
+
 }

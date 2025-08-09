@@ -15,4 +15,22 @@ public class QuestLocation extends EntityBase {
 	@JoinColumn(name = "QuestID", nullable = false)
 	private Quest questID;
 
+	public MapEntity getMapID() {
+		return mapID;
+	}
+
+	public QuestLocation setMapID(MapEntity mapID) {
+		this.mapID = mapID;
+		return this;
+	}
+
+	public Quest getQuestID() {
+		return questID;
+	}
+
+	public QuestLocation setQuestID(Quest questID) {
+		this.questID = questID;
+		return this;
+	}
+
 }

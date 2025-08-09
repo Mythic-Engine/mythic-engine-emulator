@@ -20,4 +20,40 @@ public class SkillAuraEffect extends EntityBase {
 	@Column(name = "Type", nullable = false, length = 1)
 	private String type;
 
+	public SkillAura getAuraID() {
+		return auraID;
+	}
+
+	public SkillAuraEffect setAuraID(SkillAura auraID) {
+		this.auraID = auraID;
+		return this;
+	}
+
+	public String getStat() {
+		return stat;
+	}
+
+	public SkillAuraEffect setStat(String stat) {
+		this.stat = stat;
+		return this;
+	}
+
+	public Float getValue() {
+		return value;
+	}
+
+	public SkillAuraEffect setValue(Float value) {
+		this.value = value;
+		return this;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public SkillAuraEffect setType(String type) {
+		this.type = type;
+		return this;
+	}
+
 }

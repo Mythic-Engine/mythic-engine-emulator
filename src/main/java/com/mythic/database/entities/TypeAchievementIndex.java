@@ -25,4 +25,41 @@ public class TypeAchievementIndex extends EntityBase {
 	@Column(name = "Description", nullable = false, length = 128)
 	private String description;
 
+	public Integer getId() {
+		return id;
+	}
+
+	@Override
+	public TypeAchievementIndex setId(Integer id) {
+		this.id = id;
+		return this;
+	}
+
+	public TypeAchievement getTypesAchievements() {
+		return typesAchievements;
+	}
+
+	public TypeAchievementIndex setTypesAchievements(TypeAchievement typesAchievements) {
+		this.typesAchievements = typesAchievements;
+		return this;
+	}
+
+	public Integer getIndex() {
+		return index;
+	}
+
+	public TypeAchievementIndex setIndex(Integer index) {
+		this.index = index;
+		return this;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public TypeAchievementIndex setDescription(String description) {
+		this.description = description;
+		return this;
+	}
+
 }

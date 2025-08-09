@@ -18,4 +18,31 @@ public class QuestReward extends EntityBase {
 	@Column(name = "Quantity", nullable = false)
 	private Integer quantity;
 
+	public Quest getQuestID() {
+		return questID;
+	}
+
+	public QuestReward setQuestID(Quest questID) {
+		this.questID = questID;
+		return this;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public QuestReward setItem(Item item) {
+		this.item = item;
+		return this;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public QuestReward setQuantity(Integer quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
 }

@@ -20,4 +20,40 @@ public class GuildHallConnection extends EntityBase {
 	@Column(name = "PadPosition", nullable = false, length = 16)
 	private String padPosition;
 
+	public GuildHall getHall() {
+		return hall;
+	}
+
+	public GuildHallConnection setHall(GuildHall hall) {
+		this.hall = hall;
+		return this;
+	}
+
+	public String getPad() {
+		return pad;
+	}
+
+	public GuildHallConnection setPad(String pad) {
+		this.pad = pad;
+		return this;
+	}
+
+	public String getCell() {
+		return cell;
+	}
+
+	public GuildHallConnection setCell(String cell) {
+		this.cell = cell;
+		return this;
+	}
+
+	public String getPadPosition() {
+		return padPosition;
+	}
+
+	public GuildHallConnection setPadPosition(String padPosition) {
+		this.padPosition = padPosition;
+		return this;
+	}
+
 }

@@ -15,4 +15,22 @@ public class MapItem extends EntityBase {
 	@JoinColumn(name = "ItemID", nullable = false)
 	private Item item;
 
+	public MapEntity getMapID() {
+		return mapID;
+	}
+
+	public MapItem setMapID(MapEntity mapID) {
+		this.mapID = mapID;
+		return this;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public MapItem setItem(Item item) {
+		this.item = item;
+		return this;
+	}
+
 }

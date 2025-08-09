@@ -25,4 +25,40 @@ public class GameClass extends EntityBase {
 	@Column(name = "StatsDescription", nullable = false)
 	private String statsDescription;
 
+	public String getCategory() {
+		return category;
+	}
+
+	public GameClass setCategory(String category) {
+		this.category = category;
+		return this;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public GameClass setDescription(String description) {
+		this.description = description;
+		return this;
+	}
+
+	public String getManaRegenerationMethods() {
+		return manaRegenerationMethods;
+	}
+
+	public GameClass setManaRegenerationMethods(String manaRegenerationMethods) {
+		this.manaRegenerationMethods = manaRegenerationMethods;
+		return this;
+	}
+
+	public String getStatsDescription() {
+		return statsDescription;
+	}
+
+	public GameClass setStatsDescription(String statsDescription) {
+		this.statsDescription = statsDescription;
+		return this;
+	}
+
 }

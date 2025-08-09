@@ -17,4 +17,31 @@ public class MapCell extends EntityBase {
 	@Column(name = "Pad", nullable = false, length = 16)
 	private String pad;
 
+	public MapEntity getMap() {
+		return map;
+	}
+
+	public MapCell setMap(MapEntity map) {
+		this.map = map;
+		return this;
+	}
+
+	public String getFrame() {
+		return frame;
+	}
+
+	public MapCell setFrame(String frame) {
+		this.frame = frame;
+		return this;
+	}
+
+	public String getPad() {
+		return pad;
+	}
+
+	public MapCell setPad(String pad) {
+		this.pad = pad;
+		return this;
+	}
+
 }

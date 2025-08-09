@@ -53,4 +53,130 @@ public class MonsterEntity extends EntityBase {
 	@Column(name = "LastModified", nullable = false)
 	private Instant lastModified;
 
+	public String getName() {
+		return name;
+	}
+
+	public MonsterEntity setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getRace() {
+		return race;
+	}
+
+	public MonsterEntity setRace(String race) {
+		this.race = race;
+		return this;
+	}
+
+	public String getFile() {
+		return file;
+	}
+
+	public MonsterEntity setFile(String file) {
+		this.file = file;
+		return this;
+	}
+
+	public String getLinkage() {
+		return linkage;
+	}
+
+	public MonsterEntity setLinkage(String linkage) {
+		this.linkage = linkage;
+		return this;
+	}
+
+	public String getElement() {
+		return element;
+	}
+
+	public MonsterEntity setElement(String element) {
+		this.element = element;
+		return this;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public MonsterEntity setLevel(Integer level) {
+		this.level = level;
+		return this;
+	}
+
+	public Integer getHealth() {
+		return health;
+	}
+
+	public MonsterEntity setHealth(Integer health) {
+		this.health = health;
+		return this;
+	}
+
+	public Integer getMana() {
+		return mana;
+	}
+
+	public MonsterEntity setMana(Integer mana) {
+		this.mana = mana;
+		return this;
+	}
+
+	public Integer getGold() {
+		return gold;
+	}
+
+	public MonsterEntity setGold(Integer gold) {
+		this.gold = gold;
+		return this;
+	}
+
+	public Integer getExperience() {
+		return experience;
+	}
+
+	public MonsterEntity setExperience(Integer experience) {
+		this.experience = experience;
+		return this;
+	}
+
+	public Integer getReputation() {
+		return reputation;
+	}
+
+	public MonsterEntity setReputation(Integer reputation) {
+		this.reputation = reputation;
+		return this;
+	}
+
+	public Integer getDps() {
+		return dps;
+	}
+
+	public MonsterEntity setDps(Integer dps) {
+		this.dps = dps;
+		return this;
+	}
+
+	public Boolean getTeamID() {
+		return teamID;
+	}
+
+	public MonsterEntity setTeamID(Boolean teamID) {
+		this.teamID = teamID;
+		return this;
+	}
+
+	public Instant getLastModified() {
+		return lastModified;
+	}
+
+	public MonsterEntity setLastModified(Instant lastModified) {
+		this.lastModified = lastModified;
+		return this;
+	}
+
 }

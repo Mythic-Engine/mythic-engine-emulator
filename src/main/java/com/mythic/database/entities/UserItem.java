@@ -1,10 +1,7 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
 import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
-
-import java.time.Instant;
 
 @Entity
 @Table(name = "users_items")
@@ -26,5 +23,50 @@ public class UserItem extends UserEntityBase {
 
 	@Column(name = "Bank", nullable = false)
 	private Boolean bank = false;
+
+	public Enhancement getEnhancement() {
+		return enhancement;
+	}
+
+	public UserItem setEnhancement(Enhancement enhancement) {
+		this.enhancement = enhancement;
+		return this;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public UserItem setItem(Item item) {
+		this.item = item;
+		return this;
+	}
+
+	public Boolean getEquipped() {
+		return equipped;
+	}
+
+	public UserItem setEquipped(Boolean equipped) {
+		this.equipped = equipped;
+		return this;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public UserItem setQuantity(Integer quantity) {
+		this.quantity = quantity;
+		return this;
+	}
+
+	public Boolean getBank() {
+		return bank;
+	}
+
+	public UserItem setBank(Boolean bank) {
+		this.bank = bank;
+		return this;
+	}
 
 }

@@ -29,4 +29,58 @@ public class Enhancement extends EntityBase {
 	@Column(name = "LastModified", nullable = false)
 	private Instant lastModified;
 
+	public Integer getPattern() {
+		return pattern;
+	}
+
+	public Enhancement setPattern(Integer pattern) {
+		this.pattern = pattern;
+		return this;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Enhancement setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public Integer getRarity() {
+		return rarity;
+	}
+
+	public Enhancement setRarity(Integer rarity) {
+		this.rarity = rarity;
+		return this;
+	}
+
+	public Integer getDps() {
+		return dps;
+	}
+
+	public Enhancement setDps(Integer dps) {
+		this.dps = dps;
+		return this;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public Enhancement setLevel(Integer level) {
+		this.level = level;
+		return this;
+	}
+
+	public Instant getLastModified() {
+		return lastModified;
+	}
+
+	public Enhancement setLastModified(Instant lastModified) {
+		this.lastModified = lastModified;
+		return this;
+	}
+
 }

@@ -1,6 +1,5 @@
 package com.mythic.database.entities;
 
-import com.mythic.database.EntityBase;
 import com.mythic.database.UserEntityBase;
 import jakarta.persistence.*;
 
@@ -14,5 +13,23 @@ public class UserFaction extends UserEntityBase {
 
 	@Column(name = "Reputation", nullable = false)
 	private Integer reputation;
+
+	public Faction getFaction() {
+		return faction;
+	}
+
+	public UserFaction setFaction(Faction faction) {
+		this.faction = faction;
+		return this;
+	}
+
+	public Integer getReputation() {
+		return reputation;
+	}
+
+	public UserFaction setReputation(Integer reputation) {
+		this.reputation = reputation;
+		return this;
+	}
 
 }

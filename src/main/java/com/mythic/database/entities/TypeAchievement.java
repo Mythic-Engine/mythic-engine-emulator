@@ -15,4 +15,22 @@ public class TypeAchievement extends EntityBase {
 	@Column(name = "FullName", nullable = false, length = 64)
 	private String fullName;
 
+	public String getName() {
+		return name;
+	}
+
+	public TypeAchievement setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public TypeAchievement setFullName(String fullName) {
+		this.fullName = fullName;
+		return this;
+	}
+
 }
