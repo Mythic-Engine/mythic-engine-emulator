@@ -18,10 +18,7 @@ import io.netty.handler.codec.Delimiters;
 
 public class NettyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
-	private final com.aqalter.network.NettyServer nettyServer;
-
-	public NettyChannelInitializer(com.aqalter.network.NettyServer nettyServer) {
-		this.nettyServer = nettyServer;
+	public NettyChannelInitializer() {
 	}
 
 	@Override
@@ -31,7 +28,7 @@ public class NettyChannelInitializer extends ChannelInitializer<SocketChannel> {
 			.addLast("traffic", Main.gtsh())
 			.addLast("framer", new DelimiterBasedFrameDecoder(4096, Delimiters.nulDelimiter()))
 			.addLast("gameDecoder", new NetworkDecoder())
-			.addLast("handler", new ConnectionHandler(this.nettyServer));
+			.addLast("handler", new ConnectionHandler());
 	}
 
 }

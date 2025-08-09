@@ -41,11 +41,11 @@ public class Room {
 		this.properties = new LinkedHashMap<>();
 	}
 
-	public String name() {
+	public String getName() {
 		return this.name;
 	}
 
-	public int id() {
+	public int getId() {
 		return this.id;
 	}
 

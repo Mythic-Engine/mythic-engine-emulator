@@ -9,10 +9,10 @@ package com.mythic.network.game.data;
 
 import com.mythic.AlterWorld;
 import com.mythic.api.PlayerNetwork;
-import com.mythic.aqw.ServerMessage;
 import com.mythic.avatars.Adventurer;
-import com.mythic.db.Database;
-import com.mythic.db.user.UserFriend;
+import com.mythic.database.Database;
+import com.mythic.database.user.UserFriend;
+import com.mythic.engine.ServerMessage;
 import io.netty.util.AttributeKey;
 import net.sf.json.JSONObject;
 
@@ -47,7 +47,7 @@ public class User {
 		return Adventurer.wrap(this);
 	}
 
-	public String name() {
+	public String getName() {
 		return this.name.toLowerCase();
 	}
 
@@ -57,12 +57,12 @@ public class User {
 
 	public int room() {
 		int res = -1;
-		
+
 		try {
-			res = this.roomsConnected.getFirst().id();
+			res = this.roomsConnected.getFirst().getId();
 		} catch (IndexOutOfBoundsException ignored) {
 		}
-		
+
 		return res;
 	}
 
@@ -74,7 +74,7 @@ public class User {
 		return network;
 	}
 
-	public void name(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -121,7 +121,7 @@ public class User {
 
 		//FRIENDS
 		for (UserFriend uf : player.data().friends()) {
-			com.mythic.db.user.User u = uf.friend();
+			com.mythic.database.user.User u = uf.friend();
 			Adventurer friend = Adventurer.find(u.username());
 			if (friend != null && friend.doesExist()) {
 				friend.dispatch(updateFriend);
@@ -132,6 +132,7 @@ public class User {
 
 	public void dispose() {
 		Adventurer player = Adventurer.wrap(this);
+		
 		if (player != null) {
 
 			Database.open();
@@ -141,14 +142,14 @@ public class User {
 			if (player.gameRoom() != null) {
 				player.data().lastArea(player.gameRoom().name() + "|" + player.frame() + "|" + player.pad());
 
-				String dispatchUserGone = String.format("<msg t='sys'><body action='userGone' r='%d'><user id='%d' /></body></msg>", player.getPlace().getRoom().id(), userId());
+				String dispatchUserGone = String.format("<msg t='sys'><body action='userGone' r='%d'><user id='%d' /></body></msg>", player.getPlace().getRoom().getId(), userId());
 				sfs().sendResponseRemoveUser(dispatchUserGone, this, player.getPlace().getRoom().channelList());
 
-				player.gameRoom().dispatchExceptOne(new String[]{"exitArea", String.valueOf(this.userId()), this.name()}, player);
+				player.gameRoom().dispatchExceptOne(new String[]{"exitArea", String.valueOf(this.userId()), this.getName()}, player);
 
 				Room room = player.gameRoom().room();
 
-				int roomId = room.id();
+				int roomId = room.getId();
 				int roomCount = room.userCount() - 1;
 
 				room.removeUser(this);

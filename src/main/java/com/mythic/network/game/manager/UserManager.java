@@ -56,7 +56,7 @@ public class UserManager {
 		User user = null;
 		synchronized (this.usersConnected) {
 			for (Map.Entry<Integer, User> map : this.usersConnected.entrySet()) {
-				if (map.getValue().name().equalsIgnoreCase(name))
+				if (map.getValue().getName().equalsIgnoreCase(name))
 					user = map.getValue();
 			}
 		}
