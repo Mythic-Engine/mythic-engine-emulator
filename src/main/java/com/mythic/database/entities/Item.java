@@ -2,6 +2,7 @@ package com.mythic.database.entities;
 
 import com.mythic.database.base.EntityBase;
 import jakarta.persistence.*;
+import net.sf.json.JSONObject;
 
 @Entity
 @Table(name = "items")
@@ -21,7 +22,7 @@ public class Item extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ClassID", nullable = false)
-	private GameClass classID;
+	private GameClass gameClass;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "FactionID", nullable = false)
@@ -122,12 +123,12 @@ public class Item extends EntityBase {
 		return this;
 	}
 
-	public GameClass getClassID() {
-		return classID;
+	public GameClass getGameClass() {
+		return gameClass;
 	}
 
-	public Item setClassID(GameClass classID) {
-		this.classID = classID;
+	public Item setGameClass(GameClass classID) {
+		this.gameClass = classID;
 		return this;
 	}
 
@@ -337,5 +338,68 @@ public class Item extends EntityBase {
 		this.meta = meta;
 		return this;
 	}
+	
+	//region Custom
+
+	public boolean isHouse() {
+		return this.getItemType().getEquipspot().getName().equals("ho") || this.getItemType().getEquipspot().getName().equals("hi");
+	}
+
+	//endregion
+	
+	//region JSON
+
+	public JSONObject getJSON(boolean includeEnhance) {
+		JSONObject itemData = new JSONObject()
+			.element("ItemID", this.getId())
+			.element("bCoins", this.getCoins() ? 1 : 0)
+			.element("bHouse", this.isHouse() ? 1 : 0)
+			.element("bPTR", 0)
+			.element("bStaff", this.getStaff() ? 1 : 0)
+			.element("bTemp", this.getTemporary() ? 1 : 0)
+			.element("bUpg", this.getUpgrade() ? 1 : 0)
+			.element("iCost", this.getCost())
+			.element("iDPS", this.getDps())
+			.element("iLvl", this.getLevel())
+			.element("iQSindex", this.getQuestStringIndex())
+			.element("iQSvalue", this.getQuestStringValue())
+			.element("iRng", this.getRange())
+			.element("iRty", this.getRarity())
+			.element("iStk", this.getStack())
+			.element("sDesc", this.getDescription())
+			.element("sES", this.getTypeItem().getEquipSpotType().getName())
+			.element("sElmt", this.getTypeElement().getName())
+			.element("sFile", this.getFile())
+			.element("sIcon", this.getTypeItem().getIcon())
+			.element("sLink", this.getLink())
+			.element("sMeta", this.getMeta())
+			.element("sName", this.getName())
+			.element("sReqQuests", this.getReqQuests())
+			.element("sType", this.getTypeItem().getName());
+		
+		if (this.getEnhancement().getId() > 0 && includeEnhance) {
+			if (this.getTypeItem().getName().equals("Enhancement")) {
+				itemData.element("PatternID", this.getEnhancement().getPattern().getId())
+					.element("iDPS", this.getEnhancement().getDps())
+					.element("iLvl", this.getEnhancement().getLevel())
+					.element("iRty", this.getEnhancement().getRarity())
+					.element("EnhID", 0)
+					.discard("sFile");
+			} else {
+				itemData.element("EnhID", this.getEnhancement().getId())
+					.element("EnhLvl", this.getEnhancement().getLevel())
+					.element("EnhPatternID", this.getEnhancement().getPattern().getId())
+					.element("EnhRty", this.getEnhancement().getRarity())
+					.element("iRng", this.getRange())
+					.element("EnhRng", this.getRange())
+					.element("InvEnhPatternID", this.getEnhancement().getPattern().getId())
+					.element("EnhDPS", this.getEnhancement().getDps());
+			}
+		}
+
+		return itemData;
+	}
+
+	//endregion
 
 }

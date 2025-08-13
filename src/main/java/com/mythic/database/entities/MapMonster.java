@@ -9,11 +9,11 @@ public class MapMonster extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "MapID", nullable = false)
-	private MapEntity mapID;
+	private MapEntity map;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "MonsterID", nullable = false)
-	private MonsterEntity monsterID;
+	private MonsterEntity monster;
 
 	@Column(name = "Frame", nullable = false, length = 16)
 	private String frame;
@@ -21,21 +21,21 @@ public class MapMonster extends EntityBase {
 	@Column(name = "MonMapID", nullable = false)
 	private Integer monMapID;
 
-	public MapEntity getMapID() {
-		return mapID;
+	public MapEntity getMap() {
+		return map;
 	}
 
-	public MapMonster setMapID(MapEntity mapID) {
-		this.mapID = mapID;
+	public MapMonster setMap(MapEntity mapID) {
+		this.map = mapID;
 		return this;
 	}
 
-	public MonsterEntity getMonsterID() {
-		return monsterID;
+	public MonsterEntity getMonster() {
+		return monster;
 	}
 
-	public MapMonster setMonsterID(MonsterEntity monsterID) {
-		this.monsterID = monsterID;
+	public MapMonster setMonster(MonsterEntity monsterID) {
+		this.monster = monsterID;
 		return this;
 	}
 

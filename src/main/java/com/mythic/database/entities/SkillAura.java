@@ -3,7 +3,11 @@ package com.mythic.database.entities;
 import com.mythic.database.base.EntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.Collections;
+import java.util.Set;
 
 @Entity
 @Table(name = "skills_auras")
@@ -23,6 +27,9 @@ public class SkillAura extends EntityBase {
 
 	@Column(name = "DamageTakenDecrease", nullable = false)
 	private Float damageTakenDecrease;
+
+	@OneToMany(mappedBy = "auraID")
+	private Set<SkillAuraEffect> skillAuraEffects = Collections.emptySet();
 
 	public String getName() {
 		return name;
@@ -69,4 +76,12 @@ public class SkillAura extends EntityBase {
 		return this;
 	}
 
+	public Set<SkillAuraEffect> getSkillAuraEffects() {
+		return skillAuraEffects;
+	}
+
+	public SkillAura setSkillAuraEffects(Set<SkillAuraEffect> skillAuraEffects) {
+		this.skillAuraEffects = skillAuraEffects;
+		return this;
+	}
 }

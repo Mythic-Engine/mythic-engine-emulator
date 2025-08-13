@@ -2,6 +2,8 @@ package com.mythic.database.entities;
 
 import com.mythic.database.base.EntityBase;
 import jakarta.persistence.*;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import java.time.Instant;
 
@@ -9,13 +11,28 @@ import java.time.Instant;
 @Table(name = "skills")
 public class Skill extends EntityBase {
 
+	public static final JSONObject POTION_JSON = new JSONObject()
+		.element("anim", "Cheer")
+		.element("cd", "60000")
+		.element("desc", "Equip a potion or scroll from your inventory to use it here.")
+		.element("fx", "")
+		.element("icon", "icu1")
+		.element("isOK", true)
+		.element("mp", "0")
+		.element("nam", "Potions")
+		.element("range", 808)
+		.element("ref", "i1")
+		.element("str1", "")
+		.element("tgt", "f")
+		.element("typ", "i");
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "AuraID", nullable = false)
-	private SkillAura auraID;
+	private SkillAura skillAura;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ClassID", nullable = false)
-	private GameClass classID;
+	private GameClass gameClass;
 
 	@Column(name = "Name", nullable = false, length = 32)
 	private String name;
@@ -63,24 +80,21 @@ public class Skill extends EntityBase {
 	@Column(name = "HitTargets", nullable = false)
 	private Integer hitTargets;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
-	public SkillAura getAuraID() {
-		return auraID;
+	public SkillAura getSkillAura() {
+		return skillAura;
 	}
 
-	public Skill setAuraID(SkillAura auraID) {
-		this.auraID = auraID;
+	public Skill setSkillAura(SkillAura auraID) {
+		this.skillAura = auraID;
 		return this;
 	}
 
-	public GameClass getClassID() {
-		return classID;
+	public GameClass getGameClass() {
+		return gameClass;
 	}
 
-	public Skill setClassID(GameClass classID) {
-		this.classID = classID;
+	public Skill setGameClass(GameClass classID) {
+		this.gameClass = classID;
 		return this;
 	}
 
@@ -218,14 +232,68 @@ public class Skill extends EntityBase {
 		this.hitTargets = hitTargets;
 		return this;
 	}
+	
+	//region JSON
+	public JSONObject getActiveJSON(int rank) {
+		JSONObject actObj = new JSONObject()
+			.element("anim", this.getAnimation())
+			.element("cd", String.valueOf(this.getCooldown()))
+			.element("damage", this.getDamage())
+			.element("desc", this.getDescription())
+			.element("fx", this.getEffects())
+			.element("icon", this.getIcon())
+			.element("id", this.getId())
+			.element("isOK", true)
+			.element("mp", String.valueOf(this.getMana()))
+			.element("nam", this.getName())
+			.element("range", String.valueOf(this.getRange()))
+			.element("ref", this.getReference())
+			.element("tgt", this.getTarget())
+			.element("typ", this.getType());
+		
+		if (rank < 2 && this.getReference().equals("a2")) {
+			actObj.element("isOK", false);
+		}
 
-	public Instant getLastModified() {
-		return lastModified;
+		if (rank < 3 && this.getReference().equals("a3")) {
+			actObj.element("isOK", false);
+		}
+
+		if (rank < 5 && this.getReference().equals("a4")) {
+			actObj.element("isOK", false);
+		}
+
+		if (!this.getStrl().isEmpty()) {
+			actObj.element("strl", this.getStrl());
+		}
+
+		if (!this.getDsrc().isEmpty()) {
+			actObj.element("dsrc", this.getDsrc());
+		}
+
+		if (this.getHitTargets() > 0) {
+			actObj
+				.element("tgtMax", String.valueOf(this.getHitTargets()))
+				.element("tgtMin", "1");
+		}
+
+		return actObj;
 	}
 
-	public Skill setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
-		return this;
+	public JSONObject getPassiveJSON(int rank) {
+		return new JSONObject()
+			.element("desc", this.getDescription())
+			.element("fx", this.getEffects())
+			.element("icon", this.getIcon())
+			.element("id", this.getId())
+			.element("nam", this.getName())
+			.element("range", this.getRange())
+			.element("ref", this.getReference())
+			.element("tgt", this.getTarget())
+			.element("typ", this.getType())
+			.element("auras", new JSONArray().element(new JSONObject()))
+			.element("isOK", rank >= 4);
 	}
+	//endregion
 
 }

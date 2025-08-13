@@ -20,9 +20,6 @@ public class Hair extends EntityBase {
 	@Column(name = "File", nullable = false, length = 64)
 	private String file;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public String getGender() {
 		return gender;
 	}
@@ -47,15 +44,6 @@ public class Hair extends EntityBase {
 
 	public Hair setFile(String file) {
 		this.file = file;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public Hair setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 

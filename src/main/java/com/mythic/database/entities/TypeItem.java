@@ -9,7 +9,7 @@ public class TypeItem extends EntityBase {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "EquipSpotTypeID", nullable = false)
-	private TypeItemEquipSpot equipSpotTypeID;
+	private TypeItemEquipSpot equipSpotType;
 
 	@Column(name = "Name", nullable = false, length = 64)
 	private String name;
@@ -17,12 +17,12 @@ public class TypeItem extends EntityBase {
 	@Column(name = "Icon", nullable = false, length = 32)
 	private String icon;
 
-	public TypeItemEquipSpot getEquipSpotTypeID() {
-		return equipSpotTypeID;
+	public TypeItemEquipSpot getEquipSpotType() {
+		return equipSpotType;
 	}
 
-	public TypeItem setEquipSpotTypeID(TypeItemEquipSpot equipSpotTypeID) {
-		this.equipSpotTypeID = equipSpotTypeID;
+	public TypeItem setEquipSpotType(TypeItemEquipSpot equipSpotTypeID) {
+		this.equipSpotType = equipSpotTypeID;
 		return this;
 	}
 

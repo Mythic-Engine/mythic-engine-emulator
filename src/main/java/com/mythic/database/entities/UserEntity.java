@@ -4,10 +4,22 @@ import com.mythic.database.base.EntityBase;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class UserEntity extends EntityBase {
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "users_friends",
+		joinColumns = @JoinColumn(name = "UserID", referencedColumnName = "id"),
+		inverseJoinColumns = @JoinColumn(name = "FriendID", referencedColumnName = "id")
+	)
+	private Set<UserEntity> userForFriend = Collections.emptySet();
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "GuildID", nullable = false)
@@ -87,13 +99,13 @@ public class UserEntity extends EntityBase {
 	private Integer slotsHouse;
 
 	@Column(name = "DateCreated", nullable = false)
-	private Instant dateCreated;
+	private LocalDateTime dateCreated;
 
 	@Column(name = "LastUpdated", nullable = false)
-	private Instant lastUpdated;
+	private LocalDateTime lastUpdated;
 
 	@Column(name = "UpgradeExpire", nullable = false)
-	private Instant upgradeExpire;
+	private LocalDateTime upgradeExpire;
 
 	@Column(name = "UpgradeDays", nullable = false)
 	private Integer upgradeDays;
@@ -123,6 +135,42 @@ public class UserEntity extends EntityBase {
 	@Column(name = "DeathCount", nullable = false)
 	private Integer deathCount;
 
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserAchievement> userAchievements = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserBan> userBans = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserBoost> userBoosts = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserFaction> userFactions = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserFriend> userFriends = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserIp> userIps = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserItem> userItems = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserLog> userLogs = Collections.emptySet();
+
+	@OneToMany(mappedBy = "UserID")
+	private Set<UserTransaction> userTransactions = Collections.emptySet();
+
+	public Set<UserEntity> getUserForFriend() {
+		return userForFriend;
+	}
+
+	public UserEntity setUserForFriend(Set<UserEntity> userForFriend) {
+		this.userForFriend = userForFriend;
+		return this;
+	}
+	
 	public Guild getGuild() {
 		return guild;
 	}
@@ -348,29 +396,29 @@ public class UserEntity extends EntityBase {
 		return this;
 	}
 
-	public Instant getDateCreated() {
+	public LocalDateTime getDateCreated() {
 		return dateCreated;
 	}
 
-	public UserEntity setDateCreated(Instant dateCreated) {
+	public UserEntity setDateCreated(LocalDateTime dateCreated) {
 		this.dateCreated = dateCreated;
 		return this;
 	}
 
-	public Instant getLastUpdated() {
+	public LocalDateTime getLastUpdated() {
 		return lastUpdated;
 	}
 
-	public UserEntity setLastUpdated(Instant lastUpdated) {
+	public UserEntity setLastUpdated(LocalDateTime lastUpdated) {
 		this.lastUpdated = lastUpdated;
 		return this;
 	}
 
-	public Instant getUpgradeExpire() {
+	public LocalDateTime getUpgradeExpire() {
 		return upgradeExpire;
 	}
 
-	public UserEntity setUpgradeExpire(Instant upgradeExpire) {
+	public UserEntity setUpgradeExpire(LocalDateTime upgradeExpire) {
 		this.upgradeExpire = upgradeExpire;
 		return this;
 	}
@@ -453,6 +501,87 @@ public class UserEntity extends EntityBase {
 
 	public UserEntity setDeathCount(Integer deathCount) {
 		this.deathCount = deathCount;
+		return this;
+	}
+
+	public Set<UserAchievement> getUserAchievements() {
+		return userAchievements;
+	}
+
+	public UserEntity setUserAchievements(Set<UserAchievement> userAchievements) {
+		this.userAchievements = userAchievements;
+		return this;
+	}
+
+	public Set<UserBan> getUserBans() {
+		return userBans;
+	}
+
+	public UserEntity setUserBans(Set<UserBan> userBans) {
+		this.userBans = userBans;
+		return this;
+	}
+
+	public Set<UserBoost> getUserBoosts() {
+		return userBoosts;
+	}
+
+	public UserEntity setUserBoosts(Set<UserBoost> userBoosts) {
+		this.userBoosts = userBoosts;
+		return this;
+	}
+
+	public Set<UserFaction> getUserFactions() {
+		return userFactions;
+	}
+
+	public UserEntity setUserFactions(Set<UserFaction> userFactions) {
+		this.userFactions = userFactions;
+		return this;
+	}
+
+	public Set<UserFriend> getUserFriends() {
+		return userFriends;
+	}
+
+	public UserEntity setUserFriends(Set<UserFriend> userFriends) {
+		this.userFriends = userFriends;
+		return this;
+	}
+
+	public Set<UserIp> getUserIps() {
+		return userIps;
+	}
+
+	public UserEntity setUserIps(Set<UserIp> userIps) {
+		this.userIps = userIps;
+		return this;
+	}
+
+	public Set<UserItem> getUserItems() {
+		return userItems;
+	}
+
+	public UserEntity setUserItems(Set<UserItem> userItems) {
+		this.userItems = userItems;
+		return this;
+	}
+
+	public Set<UserLog> getUserLogs() {
+		return userLogs;
+	}
+
+	public UserEntity setUserLogs(Set<UserLog> userLogs) {
+		this.userLogs = userLogs;
+		return this;
+	}
+
+	public Set<UserTransaction> getUserTransactions() {
+		return userTransactions;
+	}
+
+	public UserEntity setUserTransactions(Set<UserTransaction> userTransactions) {
+		this.userTransactions = userTransactions;
 		return this;
 	}
 

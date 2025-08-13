@@ -26,9 +26,6 @@ public class Enhancement extends EntityBase {
 	@Column(name = "Level", nullable = false)
 	private Integer level;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public Integer getPattern() {
 		return pattern;
 	}
@@ -71,15 +68,6 @@ public class Enhancement extends EntityBase {
 
 	public Enhancement setLevel(Integer level) {
 		this.level = level;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public Enhancement setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 

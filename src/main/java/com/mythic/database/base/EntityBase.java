@@ -25,7 +25,7 @@ public class EntityBase {
 	@Column(name = "date_deleted")
 	private LocalDateTime dateDeleted;
 
-	public Integer id() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -34,7 +34,7 @@ public class EntityBase {
 		return this;
 	}
 
-	public LocalDateTime dateCreated() {
+	public LocalDateTime getDateCreated() {
 		return dateCreated;
 	}
 
@@ -43,7 +43,7 @@ public class EntityBase {
 		return this;
 	}
 
-	public LocalDateTime dateUpdated() {
+	public LocalDateTime getDateUpdated() {
 		return dateUpdated;
 	}
 
@@ -52,7 +52,7 @@ public class EntityBase {
 		return this;
 	}
 
-	public LocalDateTime dateDeleted() {
+	public LocalDateTime getDateDeleted() {
 		return dateDeleted;
 	}
 

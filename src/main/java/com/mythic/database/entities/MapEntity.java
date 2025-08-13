@@ -32,9 +32,6 @@ public class MapEntity extends EntityBase {
 	@Column(name = "PvP", nullable = false)
 	private Boolean pvP = false;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public String getName() {
 		return name;
 	}
@@ -95,15 +92,6 @@ public class MapEntity extends EntityBase {
 
 	public MapEntity setPvP(Boolean pvP) {
 		this.pvP = pvP;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public MapEntity setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 

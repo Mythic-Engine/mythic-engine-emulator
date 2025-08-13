@@ -50,9 +50,6 @@ public class MonsterEntity extends EntityBase {
 	@Column(name = "TeamID", nullable = false)
 	private Boolean teamID = false;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public String getName() {
 		return name;
 	}
@@ -167,15 +164,6 @@ public class MonsterEntity extends EntityBase {
 
 	public MonsterEntity setTeamID(Boolean teamID) {
 		this.teamID = teamID;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public MonsterEntity setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 

@@ -67,9 +67,6 @@ public class Quest extends EntityBase {
 	@Column(name = "QuestChainOrder", nullable = false)
 	private Integer questChainOrder;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public Integer getAchievementIndexID() {
 		return achievementIndexID;
 	}
@@ -229,15 +226,6 @@ public class Quest extends EntityBase {
 
 	public Quest setQuestChainOrder(Integer questChainOrder) {
 		this.questChainOrder = questChainOrder;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public Quest setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 

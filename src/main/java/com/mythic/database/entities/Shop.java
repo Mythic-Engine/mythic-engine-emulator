@@ -29,9 +29,6 @@ public class Shop extends EntityBase {
 	@Column(name = "Limited", nullable = false)
 	private Boolean limited = false;
 
-	@Column(name = "LastModified", nullable = false)
-	private Instant lastModified;
-
 	public Integer getAchievementIndexID() {
 		return achievementIndexID;
 	}
@@ -83,15 +80,6 @@ public class Shop extends EntityBase {
 
 	public Shop setLimited(Boolean limited) {
 		this.limited = limited;
-		return this;
-	}
-
-	public Instant getLastModified() {
-		return lastModified;
-	}
-
-	public Shop setLastModified(Instant lastModified) {
-		this.lastModified = lastModified;
 		return this;
 	}
 
